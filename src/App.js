@@ -1,24 +1,16 @@
 
 import './App.css';
+import { Navbar } from './components/navbar';
 
 function App() {
+  const navigationMenu = [
+    'Inicio', 'Para Michis', 'Para Escalv@s', 'Contacto'
+  ]
   return (
-    <div className="navbar-container">
-      <header className="navbar">
-          <p>Happy Caturdays</p>
-              <nav className="menu">
-                <ul>
-                  <li className="nav-item"><a href=""> Inicio</a></li>
-                  <li className="nav-item"><a href="">Para Michis</a></li>
-                  <li className="nav-item"><a href="">Para Esclav@s</a></li>
-                  <li className="nav-item"><a href="">Contacto</a></li>
-                </ul>
-              </nav> 
-              <span>
-               
-              </span>
-      </header>
+    <div>
+        <Navbar navigationMenu={navigationMenu}/>
     </div>
+    
   );
 }
 

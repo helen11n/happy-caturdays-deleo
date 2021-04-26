@@ -22,9 +22,6 @@ export const Navbar = (props) => {
             <li className="nav-item">
               <a href="">{props.navigationMenu[4]}</a>
             </li>
-            <li className="nav-item">
-              <a href="">{props.navigationMenu[5]}</a>
-            </li>
           </ul>
         </nav>
         <CartWidget />

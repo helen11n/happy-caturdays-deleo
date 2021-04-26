@@ -1,0 +1,102 @@
+@import "Color.scss";
+
+/*Navbar*/
+
+.navbar-container {
+  padding: 0 50px;
+  margin: auto;
+  background-color: #ffffff;
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.navbar {
+  display: flex;
+  margin: 0 10px;
+  align-items: center;
+  color: $violeta;
+  padding: 15px 0;
+}
+
+.menu {
+  margin: 0 auto;
+}
+
+.cart-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart img {
+  width: 30px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.nav-item {
+  margin: 0 30px;
+}
+
+nav a {
+  color: $violeta;
+  text-decoration: none;
+}
+
+/**/
+.container-products {
+  display: flex;
+  justify-content: center;
+}
+
+.title-home {
+  font-size: 1.5em;
+}
+
+.container-addItems {
+
+  display: flex;
+  margin: 0 auto;
+  width: 30%;
+ 
+}
+
+.counter {
+  width: 100px;
+  display: flex;
+  border: 1px solid $violeta;
+  margin: auto;
+  color:  $violeta;
+  height: 2.5rem;
+  align-items: center;
+  border-radius: 10px;
+  margin-right: 20px;
+  button {
+    border: none;
+    margin: 0 auto;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 1.25rem;
+    color:  $violeta;
+  }
+}
+
+.addToCart {
+  display: flex;
+  
+ button {
+   border: none;
+   background-color: $violeta;
+   color: #ffffff;
+   padding: 5px 25px;
+   height: 2.5rem;
+   border-radius: 40px;
+   font-size: 1rem;
+   cursor: pointer;
+   text-transform: uppercase;
+
+ }
+}

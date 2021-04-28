@@ -18,7 +18,7 @@ export const ItemCount = () => {
       <div className="container-addItems">
         <div className="counter">
           <button onClick={removeItem}>-</button>
-          <h3> {count} </h3>
+          <h5> {count} </h5>
           <button onClick={addItem}>+</button>
         </div>
         <div className="addToCart">

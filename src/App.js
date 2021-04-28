@@ -1,7 +1,10 @@
 import "./App.scss"
+import "bootstrap/dist/css/bootstrap.min.css"
+
 import { Navbar } from "./components/Navbar"
 import { ItemListContainer } from "./components/ItemListContainer"
-import { ItemCount } from "./components/ItemCount";
+import { ItemCount } from "./components/ItemCount"
+import { ItemList } from "./components/ItemList"
 
 function App() {
    const navigationMenu = [
@@ -12,15 +15,18 @@ function App() {
     "Ingresar"
   ]
 
-  const mensajeHome = "Encontrá todo para vos y su Alteza";
+  
   return (
     <>
       <div>
         <Navbar navigationMenu={navigationMenu} />
       </div>
-      <ItemListContainer mensajeHome={mensajeHome} />
+      
       <div>
         <ItemCount />
+      </div>
+      <div>
+        <ItemList />
       </div>
     </>
   );

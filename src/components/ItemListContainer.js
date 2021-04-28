@@ -1,9 +1,9 @@
-const ItemListContainer = (greeting) => {
+import { ItemList } from "./ItemList";
+
+const ItemListContainer = () => {
   return (
     <section className="container-products">
-      <div className="title-home">
-        <h1>{greeting.mensajeHome}</h1>
-      </div>
+      <ItemList />
     </section>
   )
 }

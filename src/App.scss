@@ -50,6 +50,13 @@ nav a {
 .container-products {
   display: flex;
   justify-content: center;
+ 
+}
+
+.products-row {
+  display: flex;
+  justify-content: space-around;
+  margin: 30px 0;
 }
 
 .title-home {
@@ -82,6 +89,10 @@ nav a {
     font-size: 1.25rem;
     color:  $violeta;
   }
+
+  h5 {
+    margin: 0;
+  }
 }
 
 .addToCart {
@@ -100,3 +111,27 @@ nav a {
 
  }
 }
+
+
+/* product list */
+ .product-card {
+   display: flex;
+   flex-direction: column;
+   padding: 20px 25px;
+   width: 30%;
+   margin: 10px;
+   box-shadow: 0 6px 10px 0 rgba(207,203,203, 0.5);
+
+ }
+
+ .card-content {
+    flex: 1 1 auto;
+    text-align: center;
+   .name-card {
+    color: #666666;
+  }
+
+  .price-card {
+   color: $violeta;
+ }
+ }

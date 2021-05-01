@@ -2,9 +2,9 @@ import "./App.scss"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navbar } from "./components/Navbar"
-import { ItemListContainer } from "./components/ItemListContainer"
-import { ItemCount } from "./components/ItemCount"
+import { Item } from "./components/Item"
 import { ItemList } from "./components/ItemList"
+
 
 function App() {
    const navigationMenu = [
@@ -18,17 +18,16 @@ function App() {
   
   return (
     <>
-      <div>
-        <Navbar navigationMenu={navigationMenu} />
-      </div>
-      
-      <div>
-        <ItemCount />
-      </div>
-      <div>
-        <ItemList />
-      </div>
+          <div>
+            <Navbar navigationMenu={navigationMenu} />
+          </div>
+          <div>
+           <Item />
+          </div>
+          <div>
+            <ItemList />
+          </div>
     </>
-  );
+  )
 }
 export default App;

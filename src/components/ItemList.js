@@ -16,9 +16,9 @@ export const ItemList = () => {
       price: "2500"
     },
     {
-        name: "Rascador",
-        description: "Se usará cuando no queden muebles por rayar",
-        price: "2500"
+        name: "Catnip Fish",
+        description: "El michi puede pegar un viaje",
+        price: "1000"
       }
   ]
 

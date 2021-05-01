@@ -1,14 +1,14 @@
 import { CartWidget } from "./CartWidget";
 
 export const Navbar = (props) => {
-  return (
+  return (                                                                                                                                                                                       
     <div className="navbar-container">
       <header className="navbar">
         <p>Happy Caturdays</p>
         <nav className="menu">
           <ul>
             <li className="nav-item">
-              <a href="">{props.navigationMenu[0]}</a>
+              <a href="">{props.navigationMenu[0]}</a>                            
             </li>
             <li className="nav-item">
               <a href="">{props.navigationMenu[1]}</a>

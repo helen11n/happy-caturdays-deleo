@@ -1,11 +1,10 @@
 import { ItemList } from "./ItemList";
 
-const ItemListContainer = () => {
+export const ItemListContainer = () => {
   return (
-    <section className="container-products">
-      <ItemList />
-    </section>
+    <div className="container-products">
+     <ItemList />
+    </div>
   )
 }
 
-export {ItemListContainer}

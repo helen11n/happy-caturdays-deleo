@@ -69,15 +69,14 @@ nav a {
   width: 100%;
   display: flex;
   align-items: center;
+
+  img {
+    width: 80%;
+  }
   
 }
 
 
-.container-product-info {
-  display: inline-flex;
-  align-items: center;
-  
-}
 
 .container-addItems {
 
@@ -120,7 +119,7 @@ nav a {
    color: #ffffff;
    padding: 5px 25px;
    height: 2.5rem;
-   border-radius: 40px;
+   border-radius: 10px;
    font-size: 1rem;
    cursor: pointer;
    text-transform: uppercase;
@@ -134,7 +133,7 @@ nav a {
    display: flex;
    flex-direction: column;
    padding: 20px 25px;
-   width: 30%;
+  // width: 30%;
    margin: 10px;
    box-shadow: 0 6px 10px 0 rgba(207,203,203, 0.5);
 
@@ -143,11 +142,26 @@ nav a {
  .card-content {
     flex: 1 1 auto;
     text-align: center;
+
+    img {
+      width: 100%;
+    }
+
+    h5 {
+      color: $violeta;
+    }
+
+    button {
+      border: 1px solid $violeta;
+      margin: 10px 0;
+      background-color: transparent;
+      color: $violeta;
+      padding: 10px 25px;
+      border-radius: 10px;
+    }
    .name-card {
     color: #666666;
   }
 
-  .price-card {
-   color: $violeta;
- }
+  
  }

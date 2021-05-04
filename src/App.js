@@ -2,9 +2,9 @@ import "./App.scss"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navbar } from "./components/Navbar"
-import { Item } from "./components/Item"
-import { ItemList } from "./components/ItemList"
-
+import { ItemListContainer } from "./components/ItemListContainer"
+import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { ItemDetailContainer } from "./components/ItemDetailContainer"
 
 function App() {
    const navigationMenu = [
@@ -14,20 +14,16 @@ function App() {
     "Contacto",
     "Ingresar"
   ]
-
-  
   return (
-    <>
-          <div>
-            <Navbar navigationMenu={navigationMenu} />
-          </div>
-          <div>
-           <Item />
-          </div>
-          <div>
-            <ItemList />
-          </div>
-    </>
+    
+    <BrowserRouter>
+      <Navbar navigationMenu={navigationMenu} />
+        <Switch>
+          <Route exact path="/" component={ItemListContainer}  />
+          <Route path="/producto/:productId" component={ItemDetailContainer}  />
+         
+        </Switch>
+    </BrowserRouter>
   )
 }
 export default App;

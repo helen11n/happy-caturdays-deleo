@@ -5,6 +5,8 @@ import { Navbar } from "./components/Navbar"
 import { ItemListContainer } from "./components/ItemListContainer"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { ItemDetailContainer } from "./components/ItemDetailContainer"
+import { Home } from "./components/Home"
+import { Footer } from "./components/Footer"
 
 function App() {
    const navigationMenu = [
@@ -19,11 +21,14 @@ function App() {
     <BrowserRouter>
       <Navbar navigationMenu={navigationMenu} />
         <Switch>
-          <Route exact path="/" component={ItemListContainer}  />
-          <Route path="/producto/:productId" component={ItemDetailContainer}  />
+          <Route exact path="/" component={Home} />
+          <Route path="/category/:categoryId" component={ItemListContainer} />
+          <Route path="/producto/:productId" component={ItemDetailContainer} />
          
         </Switch>
+      <Footer />  
     </BrowserRouter>
+
   )
 }
 export default App;

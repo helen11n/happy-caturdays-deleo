@@ -5,23 +5,23 @@ export const Navbar = (props) => {
   return (                                                                                                                                                                                       
     <div className="navbar-container">
       <header className="navbar">
-      <Link to="/"><p>Happy Caturdays</p></Link>
+      <Link exact to={"/"}><p>Happy Caturdays</p></Link>
         <nav className="menu">
           <ul>
             <li className="nav-item">
-              <Link to="/">{props.navigationMenu[0]}</Link>                            
+              <Link exact to={"/"} >{props.navigationMenu[0]}</Link>                            
             </li>
             <li className="nav-item">
-              <Link >{props.navigationMenu[1]}</Link>
+              <Link to={"/category/michis"}>{props.navigationMenu[1]}</Link>
             </li>
             <li className="nav-item">
-              <Link >{props.navigationMenu[2]}</Link>
+              <Link to={"/category/esclavxs"}>{props.navigationMenu[2]}</Link>
             </li>
             <li className="nav-item">
               <Link >{props.navigationMenu[3]}</Link>
             </li>
             <li className="nav-item">
-              <Link >{props.navigationMenu[4]}</Link>
+              <Link className="nav-Link"  >{props.navigationMenu[4]}</Link>
             </li>
           </ul>
         </nav>

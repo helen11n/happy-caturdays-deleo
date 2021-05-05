@@ -1,3 +1,6 @@
+Proyecto de E-commerce creado en React para el curso de Coderhouse:
+El sitio ofrece productos para gatos y personas amantes de estos animales. 
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

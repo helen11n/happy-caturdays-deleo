@@ -1,5 +1,6 @@
 @import "Color.scss";
 
+
 /*Navbar*/
 
 .navbar-container {
@@ -15,6 +16,8 @@
   align-items: center;
   color: $violeta;
   padding: 15px 0;
+
+  
 }
 
 .menu {
@@ -40,16 +43,62 @@ nav ul {
 .nav-item {
   margin: 0 30px;
 }
-
 nav a {
   color: $violeta;
   text-decoration: none;
+ 
 }
+
+nav a:hover {
+  color: $naranja;
+  text-decoration: none;
+}
+
+/*
+.nav-link {
+  color: $violeta;
+  text-decoration: none;
+
+  }
+
+
+  .nav-active {
+    color: $naranja;
+    text-decoration: none;
+  }
+*/
+
+
+
+
+/*Home*/
+.banner {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  color: #ffffff;
+  background-image: url("./images/banner.jpg");
+  background-size: cover;
+  background-color: #9e94e8;
+}
+
+.banner-content {
+  justify-content: center;
+  width: 40%;
+  padding: 70px;
+  h1 {
+    font-weight: bold;
+  }
+}
+
+
 
 /**/
 .container-products {
   display: flex;
   justify-content: center;
+  margin: 50px 0;
  
 }
 
@@ -68,7 +117,8 @@ nav a {
   padding: 40px;
   width: 100%;
   display: flex;
-  align-items: center;
+  
+  
 
   img {
     width: 80%;
@@ -76,6 +126,22 @@ nav a {
   
 }
 
+
+
+.title-itemlist {
+  display: flex;
+  justify-content: center;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.product-detail {
+  padding-top: 20px;
+  
+  h4 {
+    padding-bottom: 30px;;
+  }
+}
 
 
 .container-addItems {
@@ -165,3 +231,45 @@ nav a {
 
   
  }
+
+ /* footer */
+ .footer {
+   background-color: #333333;
+   color: #ffffff;
+   display: flex;
+   align-items: center;
+   height: 200px;
+ }
+
+
+// Medium devices (tablets, less than 992px)
+@media (max-width: 991.98px) { 
+  .banner-content {
+    width: 80%;
+
+  }
+
+ }
+
+
+ // Small devices (landscape phones, less than 768px)
+@media (max-width: 767.98px) { 
+  .banner {
+    display: flex;
+    align-items: flex-start;
+    color: #ffffff;
+    background-image: url("./images/banner-mobile.jpg");
+    background-size: cover;
+    
+  }
+
+  .banner-content {
+    width: 100%;
+    h1 {
+      
+    }
+
+  }
+
+
+}

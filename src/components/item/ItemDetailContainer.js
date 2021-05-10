@@ -68,6 +68,7 @@ export const ItemDetailContainer = () => {
     const { productId } = useParams()
     const [ item, setItem] = useState([])
 
+    
 
     function getProductDetails(storeProducts) {
       const prodDetail = storeProducts.find( (item) => item.id === productId)
@@ -91,7 +92,11 @@ export const ItemDetailContainer = () => {
 
     },[]  )   
 
+  /*  const probando = () => {
+     alert("probando")
+   }*/ 
 
+   
 
     return (
         <div className="container">
@@ -102,7 +107,7 @@ export const ItemDetailContainer = () => {
                 description={item.description}
                 image={item.image}
                 price={item.price}
-                
+             // onAdd={probando}
                 />
                 
             </div>

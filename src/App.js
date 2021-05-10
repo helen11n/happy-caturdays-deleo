@@ -2,11 +2,11 @@ import "./App.scss"
 import "bootstrap/dist/css/bootstrap.min.css"
 
 import { Navbar } from "./components/Navbar"
-import { ItemListContainer } from "./components/ItemListContainer"
+import { ItemListContainer } from "./components/item/ItemListContainer"
 import { BrowserRouter, Switch, Route } from "react-router-dom"
-import { ItemDetailContainer } from "./components/ItemDetailContainer"
+import { ItemDetailContainer } from "./components/item/ItemDetailContainer"
 import { Home } from "./components/Home"
-import { Footer } from "./components/Footer"
+import { Footer } from "./components/footer/Footer"
 
 function App() {
    const navigationMenu = [

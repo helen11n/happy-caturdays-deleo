@@ -43,18 +43,8 @@ nav ul {
 .nav-item {
   margin: 0 30px;
 }
-nav a {
-  color: $violeta;
-  text-decoration: none;
- 
-}
 
-nav a:hover {
-  color: $naranja;
-  text-decoration: none;
-}
 
-/*
 .nav-link {
   color: $violeta;
   text-decoration: none;
@@ -66,9 +56,17 @@ nav a:hover {
     color: $naranja;
     text-decoration: none;
   }
-*/
 
 
+.cartCount {
+
+  padding: 3px 10px;
+  border-radius: 50%;
+  background-color: $violeta;
+  color: #ffffff;
+  
+
+}
 
 
 /*Home*/

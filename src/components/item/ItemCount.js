@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const ItemCount = ({ stock, initial, onAdd}) => {
+export const ItemCount = ({ stock, initial, onAdd, id}) => {
   const [count, setCount] = useState(initial);
 
  // const [buttonFinish, setButtonFinish] = useState(false)

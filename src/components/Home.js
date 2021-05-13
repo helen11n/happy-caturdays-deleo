@@ -1,4 +1,5 @@
-import { ItemListContainer } from "./item/ItemListContainer"
+import { Page } from "../components/page/Page"
+import { ItemListContainer } from "../components/item/ItemListContainer"
 
 
 export const Home = () => {
@@ -6,6 +7,7 @@ export const Home = () => {
 
     return (
         <>
+        <Page>
         <div className="container-fluid">
             <div className="row">
                 <div className="col-12 banner">
@@ -24,6 +26,7 @@ export const Home = () => {
                 </div>   
             </div>
         </div>
+        </Page>
         </>
         
     )

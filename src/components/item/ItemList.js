@@ -1,12 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
+import { CartContext } from "../../context/cartContext";
 import { Item } from "./Item"
-
+//import { CartContext } from "../../context/cartContext"
 
 export const ItemList = () => {
 
   const [products, setProducts] = useState([]);
   const {categoryId} = useParams()
+
+  const {addToCart} = useContext(CartContext)
+ 
 
   const storeProducts = [
   
@@ -111,6 +115,8 @@ export const ItemList = () => {
                     image={product.image}
                     name={product.name}
                     price={product.price}
+                  onAdd= {() => addToCart(product)}
+                    
                    
               />
             ))

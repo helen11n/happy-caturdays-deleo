@@ -6,10 +6,6 @@ export const ItemCount = ({ stock, initial, onAdd, id}) => {
  // const [buttonFinish, setButtonFinish] = useState(false)
  
 
-
-
-
-  
   const addItem = () => {
 
     count < stock ? setCount(count + 1) : setCount(count)

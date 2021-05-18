@@ -7,7 +7,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom"
 import { ItemDetailContainer } from "./components/item/ItemDetailContainer"
 import { Home } from "./components/Home"
 import { Footer } from "./components/footer/Footer"
-import { Cart } from "./components/Cart"
+import { Cart } from "./components/cart/Cart"
 import { CartProvider } from "./context/cartContext"
 
 function App() {

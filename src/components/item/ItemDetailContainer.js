@@ -11,7 +11,7 @@ export const ItemDetailContainer = () => {
             id:"1",
             name: "Cama",
             description: "Para que la use cuando no quiere usar la del esclavx",
-            price: "4900",
+            price: 4900,
             category: "michis",
             image: "http://localhost:3000/static/media/cama.119f5e1e.jpg"
           },
@@ -19,7 +19,7 @@ export const ItemDetailContainer = () => {
             id:"2",
             name: "Rascador básico",
             description: "Se usará cuando no queden muebles por rayar",
-            price: "2900",
+            price: 2900,
             category: "michis",
             image: "http://localhost:3000/static/media/rascador-basico.1991a54a.jpg"
           },
@@ -27,7 +27,7 @@ export const ItemDetailContainer = () => {
             id:"3",
             name: "Catnip Fish",
             description: "El michi puede pegar un viaje",
-            price: "1000",
+            price: 1000,
             category: "michis",
             image: "http://localhost:3000//static/media/catnip-fish.2bacad4e.jpg"
             },
@@ -35,7 +35,7 @@ export const ItemDetailContainer = () => {
               id:"4",
               name: "Rascador Premium",
               description: "Para michis llenos de energía que necesiten entrenar para dominar el mundo",
-              price: "16500",
+              price: 16500,
               category: "michis",
               image: "http://localhost:3000/static/media/rascador-premium.b12ad526.jpg"
             },
@@ -43,7 +43,7 @@ export const ItemDetailContainer = () => {
               id:"11",
               name: "Remera Cat Dad",
               description: "Para orgullosos Karen Macho",
-              price: "1490",
+              price: 1490,
               category: "esclavxs",
               image: "http://localhost:3000/static/media/remera-catdad.a520fc9c.jpg"
             },
@@ -51,7 +51,7 @@ export const ItemDetailContainer = () => {
               id:"12",
               name: "Remera Crazy Cat Lady",
               description: "Usala por si a alguien le queda alguna duda",
-              price: "1490",
+              price: 1490,
               category: "esclavxs",
               image: "http://localhost:3000/static/media/remera-catlady.ee6d80f5.jpg"
             },
@@ -59,7 +59,7 @@ export const ItemDetailContainer = () => {
               id:"13",
               name: "Medias",
               description: "Te vas a querer sacar los zapatos todo el tiempo",
-              price: "350",
+              price: 350,
               category: "esclavxs",
               image: "http://localhost:3000/static/media/medias.a905cb7a.jpg"
               }
@@ -103,11 +103,12 @@ export const ItemDetailContainer = () => {
             <div className="row">
               
                 <ItemDetail 
-                name={item.name}
+                props={item}
+             /*  name={item.name}
                 description={item.description}
                 image={item.image}
                 price={item.price}
-             // onAdd={probando}
+             // onAdd={probando} */ 
                 />
                 
             </div>

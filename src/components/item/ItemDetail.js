@@ -5,13 +5,13 @@ import { ItemCount } from "./ItemCount"
 import { Fragment } from "react"
 import { CartContext } from "../../context/cartContext"
 
-export const ItemDetail = ({ image, name, description, price, id}) => {
+export const ItemDetail = ({ props }) => {
 
 
 const [quantity, setQuantity] = useState(0)
 const [buttonFinish, setButtonFinish] = useState(false)
 
-const {addToCart} = useContext(CartContext)
+const { addToCart } = useContext(CartContext)
 
 useEffect( () => {
     if (quantity > 0) {
@@ -21,17 +21,14 @@ useEffect( () => {
 }, [quantity]  )
 
 
-const onAdd = (quantity, id) => {
+const onAdd = (quantity) => {
 
     setQuantity(quantity)
    console.log(quantity)
 
   
-  addToCart(quantity, id)
+ addToCart(props)
 }
-
-
-
 
 
 return (
@@ -40,14 +37,14 @@ return (
                 <div className="row">
                     <div className="product">
                         <div className="col-lg-6 col-sm-12">  
-                              <img src={image} alt={name} />
+                              <img src={props.image} alt={props.name} />
                         </div>  
 
                         <div className="col-lg-6 col-sm-12">
                             <div className="product-detail">
-                                <h2> {name} </h2>
-                                <p>{description} </p>
-                                <h4>${price}</h4> 
+                                <h2> {props.name} </h2>
+                                <p>{props.description} </p>
+                                <h4>${props.price}</h4> 
                                 
                                 {buttonFinish ?
                                 <Fragment>
@@ -57,7 +54,7 @@ return (
                                </Fragment>  
                                   : 
 
-                               ( <ItemCount stock={10} initial={1} onAdd={onAdd} id={id}/> )
+                               ( <ItemCount stock={10} initial={1} onAdd={onAdd} /> )
                                 
                                 }
 

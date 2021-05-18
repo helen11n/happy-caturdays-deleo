@@ -28,27 +28,27 @@ export const Cart = ( ) => {
                             <div className="row-cart-list"> 
                             <div className="items-head">  
                                 <div className="item-image">
-                                    Producto
+                                    propso
                                 </div>  
                                 <div className="item-description">
                                    Detalle
                                 </div>  
                             </div>
                             </div>
-                       { cart.map(product => (
+                       { cart.map(props => (
                            
                             <div className="row-cart-list">
                                 <div className="items-cart">
                                         <div className="item-image">
-                                            <img src={product.image} />
+                                            <img src={props.image} />
                                         </div> 
                                         <div className="item-description">
-                                            <p>{product.name}  </p>
-                                            <p>$ {product.price}  </p>
+                                            <p>{props.name}  </p>
+                                            <p>$ {props.price}  </p>
                                             <p> {quantity} </p>
                                         </div> 
                                         <div className="item-description">
-                                            <button className="remove-from-cart" title="Eliminar del carrito" onClick={() => removeFromCart(product.id) }>X Eliminar</button>
+                                            <button className="remove-from-cart" title="Eliminar del carrito" onClick={() => removeFromCart(props.id) }>X Eliminar</button>
                                         </div> 
                                         
                                 </div>    
@@ -77,7 +77,7 @@ export const Cart = ( ) => {
 
                                 </div>  
                                 <div className="empty-cart-button">
-                                <Link exact to="/"> <button>Ver todos los productos</button></Link> 
+                                <Link exact to="/"> <button>Ver todos los propsos</button></Link> 
 
                                 </div>
                             </div>

@@ -14,8 +14,31 @@ export const CartProvider = ( {children} ) => {
     }
 
 */
+
+const addToCart = (item, quantity) => {
+
+    const isInCart = item => cart.find(product => product.id === item.id)
+    
+    const newCart = [...cart, item]
    
-    const addToCart = (item) => {
+    const findItem = isInCart(item);
+   
+    if(findItem > 0) {
+        newCart[newCart.findIndex(prod => prod.id === item.id)].quantity += cartQuantity
+        setCart(newCart);
+     
+    } 
+    
+    item.quantity = quantity;
+    newCart.push(item);
+    setCart(newCart);
+}
+
+
+
+
+   /* 
+  const addToCart = (item, quantity) => {
         const isInCart = cart.find((item) => item === item.id)
         if (isInCart > 0) {
             isInCart.quantity += cartQuantity
@@ -27,6 +50,7 @@ export const CartProvider = ( {children} ) => {
         }
         console.log(isInCart)
     }
+*/
 
     
 
@@ -34,6 +58,7 @@ export const CartProvider = ( {children} ) => {
 
         const newCart = cart.filter( (item)=> item.id !== itemId  ) 
         setCart(newCart)
+      
     }
 
     const clearCart = () => {
@@ -41,8 +66,6 @@ export const CartProvider = ( {children} ) => {
     }
 
 
-
-  
   
     useEffect ( () => {
         setCartQuantity(cart.length)
@@ -51,7 +74,7 @@ export const CartProvider = ( {children} ) => {
 
     return (
 
-        <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartQuantity, clearCart }} >
+        <CartContext.Provider value={{ cart, addToCart, removeFromCart, cartQuantity, clearCart}} >
             { children }
         </CartContext.Provider>
     )

@@ -28,7 +28,7 @@ export const Cart = ( ) => {
                             <div className="row-cart-list"> 
                             <div className="items-head">  
                                 <div className="item-image">
-                                    propso
+                                    Producto
                                 </div>  
                                 <div className="item-description">
                                    Detalle
@@ -77,7 +77,7 @@ export const Cart = ( ) => {
 
                                 </div>  
                                 <div className="empty-cart-button">
-                                <Link exact to="/"> <button>Ver todos los propsos</button></Link> 
+                                <Link exact to="/"> <button>Ver todos los productos</button></Link> 
 
                                 </div>
                             </div>

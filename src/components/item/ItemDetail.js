@@ -45,6 +45,7 @@ return (
                                 <h2> {props.name} </h2>
                                 <p>{props.description} </p>
                                 <h4>${props.price}</h4> 
+                                <p> {props.stock} disponibles </p>
                                 
                                 {buttonFinish ?
                                 <Fragment>
@@ -54,7 +55,7 @@ return (
                                </Fragment>  
                                   : 
 
-                               ( <ItemCount stock={10} initial={1} onAdd={onAdd} /> )
+                               ( <ItemCount stock={props.stock} initial={1} onAdd={onAdd} /> )
                                 
                                 }
 

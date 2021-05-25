@@ -15,7 +15,7 @@ const { addToCart } = useContext(CartContext)
 
 useEffect( () => {
     if (quantity > 0) {
-        setButtonFinish(true)
+        
     }
 
 }, [quantity]  )
@@ -26,8 +26,8 @@ const onAdd = (quantity) => {
     setQuantity(quantity)
    console.log(quantity)
 
-  
- addToCart(props)
+   setButtonFinish(true)
+ addToCart(props, quantity)
 }
 
 
@@ -37,12 +37,12 @@ return (
                 <div className="row">
                     <div className="product">
                         <div className="col-lg-6 col-sm-12">  
-                              <img src={props.image} alt={props.name} />
+                              <img src={props.image} alt={props.title} />
                         </div>  
 
                         <div className="col-lg-6 col-sm-12">
                             <div className="product-detail">
-                                <h2> {props.name} </h2>
+                                <h2> {props.title} </h2>
                                 <p>{props.description} </p>
                                 <h4>${props.price}</h4> 
                                 <p> {props.stock} disponibles </p>
@@ -55,7 +55,12 @@ return (
                                </Fragment>  
                                   : 
 
-                               ( <ItemCount stock={props.stock} initial={1} onAdd={onAdd} /> )
+                               ( <ItemCount 
+                                stock={props.stock} 
+                                initial={1} 
+                                onAdd={onAdd} 
+                                count={quantity}
+                                 /> )
                                 
                                 }
 

@@ -46,18 +46,18 @@ export const ItemList = () => {
         </div>
         <div className="row row-cols-lg-4 row-cols-sm-12">  
      
-
+          
         {isEmptyCategory ? (
-
+          <div className="empty-list">
           <p>No hay productos para mostrar</p>
             
-            
+          </div>  
             ) : (
 
               products.map((product, index) => (
                 <Item id={product.id}
                       image={product.image}
-                      name={product.name}
+                      title={product.title}
                       price={product.price}
                       onAdd= {() => addToCart(product)}
                       key={index}

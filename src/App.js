@@ -11,18 +11,12 @@ import { Cart } from "./components/cart/Cart"
 import { CartProvider } from "./context/cartContext"
 
 function App() {
-   const navigationMenu = [
-    "Inicio",
-    "Para Michis",
-    "Para Escalv@s",
-    "Contacto",
-    "Ingresar"
-  ]
+ 
   return (
     
     <BrowserRouter>
       <CartProvider >
-        <Navbar navigationMenu={navigationMenu} />
+        <Navbar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/category/:categoryId" component={ItemListContainer} />

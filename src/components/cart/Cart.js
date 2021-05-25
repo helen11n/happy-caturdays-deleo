@@ -1,16 +1,100 @@
-import { Fragment, useContext, useEffect } from "react"
+import { Fragment, useContext, useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import { CartContext } from "../../context/cartContext"
-//import { CartItem } from "./CartItem"
+import { getFirestore } from "../../firebase"
+import { Input } from "../input/Input"
+import firebase from 'firebase/app'
+
 import "./cart.scss"
 
 export const Cart = ( ) => {
   
-    const { cart, removeFromCart, quantity, clearCart } = useContext(CartContext)
+    const { cart, removeFromCart, cartQuantity, clearCart, setCart } = useContext(CartContext)
 
-    useEffect( () => {
+    const [form, setForm] = useState ({
+        name: '', surname: '', email:'', phone: ''
+    })
+    const [order,setOrder] = useState('')
 
-    },[] )
+  
+    const handleFinish = async () => {
+        const db = getFirestore()
+        const batch = db.batch()
+
+        cart.forEach((item) => {
+            const itemRef = db.collection("items").doc(item.id)
+            batch.update(itemRef, { stock: item.stock - item.quantity})
+
+        })
+
+        batch.commit().then( (r) => console.log(r)  )
+
+            setCart([])
+            orderCart()
+        
+    }
+
+
+    const formFields = [
+        {
+            id: 'name',
+            label: 'Nombre',
+            value: form.name
+          
+        },
+        {
+            id: 'surname',
+            label: 'Apellido',
+            value: form.surname
+          
+        },
+        {
+            id: 'email',
+            label: 'Correo Electrónico',
+            value: form.email
+          
+        },
+        {
+            id: 'phone',
+            label: 'Teléfono',
+            value: form.phone
+          
+        }
+
+    ]
+
+    const { name, surname, phone, email } = form
+
+    const handleForm = (id, value) => {
+        const newForm = { ...form, [id]: value }
+        setForm(newForm)
+
+
+    }
+
+    
+    const orderCart = () => {
+        const db = getFirestore()
+        const ordersCollection = db.collection("orders")
+
+      const items = cart.map(product => ( {id: product.id, title: product.title, price: product.price} ))
+  
+        const newOrder = {
+         buyer: {name, surname, email, phone},
+         items: items, 
+         date: firebase.firestore.Timestamp.fromDate(new Date ()),
+           // total: cartTotal()
+        }
+
+        ordersCollection.add(newOrder).then(({id}) => {
+            setOrder(id)
+        })
+       
+         alert("Compra realizada con éxito")   
+         console.log("newOrder:", newOrder)
+            
+    }
+
     
     return (
 
@@ -19,8 +103,6 @@ export const Cart = ( ) => {
             <div className="container">
                 <div className="row">
                     
-                        
-                       
                     {cart.length > 0 ? (
                         <Fragment>
                         <div className="col-lg-8 col-sm-12">
@@ -43,9 +125,9 @@ export const Cart = ( ) => {
                                             <img src={props.image} />
                                         </div> 
                                         <div className="item-description">
-                                            <p>{props.name}  </p>
+                                            <p>{props.title}  </p>
                                             <p>$ {props.price}  </p>
-                                            <p> {quantity} </p>
+                                            <p> {cartQuantity} </p>
                                         </div> 
                                         <div className="item-description">
                                             <button className="remove-from-cart" title="Eliminar del carrito" onClick={() => removeFromCart(props.id) }>X Eliminar</button>
@@ -66,7 +148,21 @@ export const Cart = ( ) => {
                             </div>    
                         </div>
                         <div className="col-lg-4 col-sm-12">
-                           Total 
+
+                            <div className="form">
+                            Total <br/>
+                            {formFields.map(({ id, label, value }) => (
+                                <Input 
+                                    key={id} id={id} label={label} value={value} onChange={handleForm}
+                                />
+                            )
+
+                            )
+                            }
+                            </div>
+                            <div className="button-finish-container">
+                                <button onClick={handleFinish}>Finalizar compra</button>
+                            </div>    
                         </div>
                         </Fragment>        
                        

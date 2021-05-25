@@ -1,32 +1,53 @@
+import "./navbar.scss"
+
 import { CartWidget } from "./CartWidget";
 import { NavLink } from "react-router-dom"
 
-export const Navbar = (props) => {
-  return (                                                                                                                                                                                       
-    <div className="navbar-container">
-      <header className="navbar">
-      <NavLink exact to="/"><p>Happy Caturdays</p></NavLink>
-        <nav className="menu">
-          <ul>
-            <li className="nav-item">
-              <NavLink className="nav-link" activeClassName="nav-active" exact to="/" >{props.navigationMenu[0]}</NavLink>                            
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" activeClassName="nav-active" to="/category/michis">{props.navigationMenu[1]}</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" activeClassName="nav-active" to="/category/esclavxs">{props.navigationMenu[2]}</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" activeClassName="nav-active" to="/contacto">{props.navigationMenu[3]}</NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink className="nav-link" activeClassName="nav-active" to="/ingresar">{props.navigationMenu[4]}</NavLink>
-            </li>
-          </ul>
+const navigationMenu = [
+  "Inicio",
+  "Para Michis",
+  "Para Escalv@s",
+  "Contacto",
+  "Ingresar"
+]
+export const Navbar = () => {
+  return (        
+
+
+   <div className="navbar-container">
+      <header className="">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container-fluid">
+          <NavLink exact to="/"><p>Happy Caturdays</p></NavLink>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-i">
+              <li className="nav-item">
+                      <NavLink className="nav-link" activeClassName="nav-active" exact to="/" >{navigationMenu[0]}</NavLink>                            
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" activeClassName="nav-active" to="/category/michis">{navigationMenu[1]}</NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" activeClassName="nav-active" to="/category/esclavxs">{navigationMenu[2]}</NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" activeClassName="nav-active" to="/contacto">{navigationMenu[3]}</NavLink>
+                    </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" activeClassName="nav-active" to="/ingresar">{navigationMenu[4]}</NavLink>
+                    </li>
+              
+              </ul>
+            </div>
+            <CartWidget />
+          </div>
+          
         </nav>
-        <CartWidget />
-      </header>
+        
+        </header>
     </div>
   );
 };

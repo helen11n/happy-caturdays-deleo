@@ -1,61 +1,7 @@
 @import "Color.scss";
 
 
-/*Navbar*/
 
-.navbar-container {
-  padding: 0 50px;
-  margin: auto;
-  background-color: #ffffff;
-  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
-}
-
-.navbar {
-  display: flex;
-  margin: 0 10px;
-  align-items: center;
-  color: $violeta;
-  padding: 15px 0;
-
-  
-}
-
-.menu {
-  margin: 0 auto;
-}
-
-.cart-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.cart img {
-  width: 30px;
-}
-
-nav ul {
-  display: flex;
-  list-style: none;
-  padding: 0;
-}
-
-.nav-item {
-  margin: 0 30px;
-}
-
-
-.nav-link {
-  color: $violeta;
-  text-decoration: none;
-
-  }
-
-
-  .nav-active {
-    color: $naranja;
-    text-decoration: none;
-  }
 
 
 .cartCount {
@@ -97,7 +43,7 @@ nav ul {
   display: flex;
   justify-content: center;
   margin: 50px 0;
- 
+  min-height: 500px;
 }
 
 .products-row {
@@ -115,7 +61,7 @@ nav ul {
   padding: 40px;
   width: 100%;
   display: flex;
-  
+  min-height: 500px;
   
 
   img {
@@ -141,6 +87,12 @@ nav ul {
   justify-content: center;
   margin: 30px auto;
   text-align: center;
+}
+
+.empty-list {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
 }
 
 .product-detail {

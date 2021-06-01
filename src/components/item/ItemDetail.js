@@ -9,7 +9,7 @@ export const ItemDetail = ({ props }) => {
 
 
 const [quantity, setQuantity] = useState(0)
-const [buttonFinish, setButtonFinish] = useState(false)
+const [buttonFinish, setButtonFinish] = useState(true)
 
 const { addToCart } = useContext(CartContext)
 
@@ -23,57 +23,55 @@ useEffect( () => {
 
 const onAdd = (quantity) => {
 
-    setQuantity(quantity)
+   setQuantity(quantity)
    console.log(quantity)
 
-   setButtonFinish(true)
- addToCart(props, quantity)
+   setButtonFinish(false)
+   addToCart(props, quantity)
 }
 
 
 return (
 
-<div className="container">
+        <div className="product">
+            <div className="col-md-12">
                 <div className="row">
-                    <div className="product">
-                        <div className="col-lg-6 col-sm-12">  
-                              <img src={props.image} alt={props.title} />
-                        </div>  
-
-                        <div className="col-lg-6 col-sm-12">
-                            <div className="product-detail">
-                                <h2> {props.title} </h2>
-                                <p>{props.description} </p>
-                                <h4>${props.price}</h4> 
-                                <p> {props.stock} disponibles </p>
-                                
-                                {buttonFinish ?
-                                <Fragment>
-                                
-                                  <Link to={"/cart"}><button className="button-finish">Finalizar Compra </button></Link>
-                                 
-                               </Fragment>  
-                                  : 
-
-                               ( <ItemCount 
-                                stock={props.stock} 
-                                initial={1} 
-                                onAdd={onAdd} 
-                                count={quantity}
-                                 /> )
-                                
-                                }
-
-                            </div>  
-
-                        </div>
-                    </div>      
+            <div className="col-md-6"> 
+                <div className="product-image-container"> 
+                <img src={props.image} alt={props.title} className="img-fluid"/>
                 </div>
-            </div> 
+            </div>  
 
+            <div className="col-md-6">
+                <div className="product-detail">
+                    <h3> {props.title} </h3>
+                    <p>{props.description} </p>
+                    <h4>${props.price}</h4> 
 
+                    { props.stock == 0 ? <p> Sin stock </p>  :  <p> {props.stock} disponibles </p> }
+                    {
+                    buttonFinish ?
+                   <ItemCount 
+                    stock={props.stock} 
+                    initial={1} 
+                    onAdd={onAdd} 
+                    count={quantity}
+                   />  
+
+                    : 
+                         
+                       <Fragment>
+                                
+                       <Link to={"/cart"}><button className="button-finish">Finalizar Compra </button></Link>
+                                    
+                       </Fragment>    }      
+                   
+                </div>
+                </div>  
+            </div>        
+            </div>
+        </div>      
+            
     )
-
-
 
 }

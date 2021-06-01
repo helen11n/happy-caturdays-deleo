@@ -10,9 +10,7 @@ export const CartProvider = ( {children} ) => {
  /*
     const addToCart = (item) => {
         setCart([...cart, item])
-
     }
-
 */
 
 const addToCart = (item, quantity) => {

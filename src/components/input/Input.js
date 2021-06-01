@@ -1,7 +1,7 @@
 import React, { Fragment } from "react"
 import "./input.scss"
 
-export const Input = ( {id, label, value, onChange} ) => {
+export const Input = ( {id, label, value, type, onChange} ) => {
 
     return (
         <Fragment>
@@ -11,7 +11,7 @@ export const Input = ( {id, label, value, onChange} ) => {
             </label>
 
         </div>
-        <input type="text" onChange={ ({target}) => onChange(id, target.value) } value={value} />
+        <input  onChange={ ({target}) => onChange(id, target.value) } value={value} type={type} />
         </Fragment>
     )
 }

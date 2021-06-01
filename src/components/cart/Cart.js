@@ -4,12 +4,13 @@ import { CartContext } from "../../context/cartContext"
 import { getFirestore } from "../../firebase"
 import { Input } from "../input/Input"
 import firebase from 'firebase/app'
-
+import { CartItem } from "./CartItem"
 import "./cart.scss"
+
 
 export const Cart = ( ) => {
   
-    const { cart, removeFromCart, cartQuantity, clearCart, setCart } = useContext(CartContext)
+    const { cart,  clearCart, setCart } = useContext(CartContext)
 
     const [form, setForm] = useState ({
         name: '', surname: '', email:'', phone: ''
@@ -39,25 +40,28 @@ export const Cart = ( ) => {
         {
             id: 'name',
             label: 'Nombre',
-            value: form.name
+            value: form.name,
+            type: "text"
           
         },
         {
             id: 'surname',
             label: 'Apellido',
-            value: form.surname
-          
+            value: form.surname,
+            type: "text"
         },
         {
             id: 'email',
             label: 'Correo Electrónico',
-            value: form.email
+            value: form.email,
+            type: "email"
           
         },
         {
             id: 'phone',
             label: 'Teléfono',
-            value: form.phone
+            value: form.phone,
+            type: "text"
           
         }
 
@@ -71,6 +75,18 @@ export const Cart = ( ) => {
 
 
     }
+
+  const handleSubmit = (e) => {
+      e.preventDefault()
+
+      if ([name.trim(), surname.trim(), email.trim(), phone.trim()].includes('')) {
+        alert('Por favor complete todos los campos');
+       
+      } else {
+          handleFinish()
+      }
+       
+    } 
 
     
     const orderCart = () => {
@@ -102,7 +118,7 @@ export const Cart = ( ) => {
         <section className="cart">
             <div className="container">
                 <div className="row">
-                    
+                   
                     {cart.length > 0 ? (
                         <Fragment>
                         <div className="col-lg-8 col-sm-12">
@@ -118,8 +134,8 @@ export const Cart = ( ) => {
                             </div>
                             </div>
                        { cart.map(props => (
-                           
-                            <div className="row-cart-list">
+                           <CartItem props={props}/>
+                        /*     <div className="row-cart-list">
                                 <div className="items-cart">
                                         <div className="item-image">
                                             <img src={props.image} />
@@ -134,7 +150,7 @@ export const Cart = ( ) => {
                                         </div> 
                                         
                                 </div>    
-                            </div>
+                            </div>*/
                            
 
                              ) )}  
@@ -149,25 +165,27 @@ export const Cart = ( ) => {
                         </div>
                         <div className="col-lg-4 col-sm-12">
 
-                            <div className="form">
+                            <form className="form">
                             Total <br/>
-                            {formFields.map(({ id, label, value }) => (
+                            {formFields.map(({ id, label, value, type }) => (
                                 <Input 
-                                    key={id} id={id} label={label} value={value} onChange={handleForm}
+                                    key={id} id={id} label={label} value={value} type={type} onChange={handleForm}
                                 />
                             )
 
                             )
                             }
-                            </div>
+                            </form>
                             <div className="button-finish-container">
-                                <button onClick={handleFinish}>Finalizar compra</button>
+                                <button type="submit" onClick={handleFinish, handleSubmit}>Finalizar compra</button>
                             </div>    
                         </div>
                         </Fragment>        
                        
                         ) : (
-                            <div className="col-12">
+
+                        <div className="col-12">    
+                            <div className="empty-cart-content">
                                 <div className="empty-cart-text">
                                     <h2>Tu carrito esta vacio &#128576;</h2>
 
@@ -177,6 +195,7 @@ export const Cart = ( ) => {
 
                                 </div>
                             </div>
+                        </div>
                             )
                            
                             }

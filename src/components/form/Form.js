@@ -54,7 +54,7 @@ export const Form = ({showForm, setShowForm}) => {
 
     ]
 
-    const stockUpdate =  () => {
+    const stockUpdate = async () => {
         const db = getFirestore()
         const batch = db.batch()
 
@@ -67,7 +67,7 @@ export const Form = ({showForm, setShowForm}) => {
         batch.commit().then( (r) => console.log(r)  )
 
             setCart([])
-            orderCart()
+           
         
     }
 
@@ -84,13 +84,6 @@ export const Form = ({showForm, setShowForm}) => {
   const handleSubmit = (e) => {
       e.preventDefault()
 
-    /*  if ([name.trim(), surname.trim(), email.trim(), phone.trim()].includes('')) {
-        alert('Por favor complete todos los campos');
-       
-      } else {
-         // setLoader(true)
-          stockUpdate()
-      }*/ 
 
       let patternNombre = /^[a-zA-Z- ]*$/
       let patternEmail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
@@ -102,7 +95,7 @@ export const Form = ({showForm, setShowForm}) => {
       } else if ([name.trim(), surname.trim(), email.trim(), phone.trim()].includes('')) {
         setError('Por favor completa todos los campos')
       } else {
-        stockUpdate()
+        orderCart()
       }
        
     } 
@@ -124,9 +117,11 @@ export const Form = ({showForm, setShowForm}) => {
 
         ordersCollection.add(newOrder).then(({id}) => {
             setOrder(id)
-        })
+        }).catch((error) => {
+            console.log('Hubo un error al crear la orden', error);
+        }).finally(stockUpdate())
        
-            alert("Compra realizada con éxito:"  )   
+            alert("Compra realizada con éxito:" + {order} )   
          console.log("newOrder:", newOrder)
             
     }
@@ -141,7 +136,7 @@ export const Form = ({showForm, setShowForm}) => {
             <div className="text-cart-form">
                 <p>Completá tus datos para confirmar tu compra</p>
             </div>
-            <form className="form">
+            <form className="form" onSubmit={handleSubmit}>
                
                  {formFields.map(({ id, label, value, type, placeholder }) => (
                         <Input 
@@ -157,9 +152,8 @@ export const Form = ({showForm, setShowForm}) => {
             {error && <p className="error"> {error} </p> }
             <div className="button-finish-container">
             <Link to="/cartCheckOut">
-                    texto
+           <button type="submit" onClick={orderCart} >Confirmar compra</button>
            </Link>
-           <button type="submit" onClick={stockUpdate, handleSubmit} >Confirmar compra</button>
             </div>  
         </div>            
         </Fragment>

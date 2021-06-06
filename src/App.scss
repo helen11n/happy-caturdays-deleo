@@ -1,7 +1,17 @@
 @import "Color.scss";
 
 
+html {
+  scroll-behavior: smooth;
+}
 
+.container {
+
+}
+
+.naranja {
+  color: $naranja;
+}
 
 .cartCount {
 
@@ -199,6 +209,11 @@
    cursor: pointer;
    text-transform: uppercase;
 
+   &:hover {
+    transition: 0.5s;
+    background-color: $naranja2;
+   }
+
  }
 }
 
@@ -250,6 +265,11 @@
    height: 200px;
  }
 
+
+
+ @media (min-width: 1200px) { 
+  
+  }
 
 // Medium devices (tablets, less than 992px)
 @media (max-width: 991.98px) { 

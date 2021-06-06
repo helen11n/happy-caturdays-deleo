@@ -16,7 +16,7 @@ export const CartItem = ( {props} ) => {
                                         <div className="item-description">
                                             <p>{props.title}  </p>
                                             <p>$ {props.price}  </p>
-                                            <p> {cartQuantity} </p>
+                                            <p> Cantidad: {props.quantity} </p>
                                         </div> 
                                         <div className="item-description">
                                             <button className="remove-from-cart" title="Eliminar del carrito" onClick={() => removeFromCart(props.id) }>X Eliminar</button>

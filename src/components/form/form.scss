@@ -1,0 +1,69 @@
+@import "../../Color.scss";
+
+
+.cart-form-container {
+    //margin: 0 20px;
+    margin: 0 auto;
+}
+
+.cart-total {
+  //  background-color: #f3f3f3;
+    padding: 20px 0;
+    margin-bottom: 20px;
+        h5 {
+            font-weight: bold;
+            color: $naranja2;
+        }
+
+}
+
+.text-cart-form {
+   
+    p {
+        font-weight: bold;
+    }
+}
+
+.form {
+   margin-bottom: 20px;
+   padding: 20px;
+   box-shadow: 0 6px 10px 0 rgba(207,203,203, 0.5);
+}
+
+label {
+    margin-bottom: 2px;
+}
+
+input {
+   padding: 5px;
+   border: 1px solid #a4a4a4;
+   margin-bottom:20px;
+   &:last-child {
+       margin-bottom: 10px;
+   }
+}
+
+.button-finish-container {
+    display: inline-flex;
+    margin: 40px 0;
+
+    button {
+        border: none;
+        padding: 10px 40px;
+        background-color: $violeta;
+        color: #ffffff;
+        border-radius: 10px;
+        font-size: 14px;
+        letter-spacing: 1px;
+        &:hover {
+          transition: 0.5s;
+          opacity: 0.8;
+        }
+    }
+}
+
+
+.error {
+    padding-left: 20px;
+    color: red;
+}

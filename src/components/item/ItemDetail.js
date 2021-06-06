@@ -33,7 +33,7 @@ const onAdd = (quantity) => {
 
 return (
 
-        <div className="product">
+         <div className="product">
             <div className="col-md-12">
                 <div className="row">
             <div className="col-md-6"> 
@@ -48,29 +48,27 @@ return (
                     <p>{props.description} </p>
                     <h4>${props.price}</h4> 
 
-                    { props.stock == 0 ? <p> Sin stock </p>  :  <p> {props.stock} disponibles </p> }
-                    {
-                    buttonFinish ?
-                   <ItemCount 
-                    stock={props.stock} 
-                    initial={1} 
-                    onAdd={onAdd} 
-                    count={quantity}
-                   />  
-
-                    : 
-                         
-                       <Fragment>
-                                
-                       <Link to={"/cart"}><button className="button-finish">Finalizar Compra </button></Link>
-                                    
-                       </Fragment>    }      
+                    {props.stock == 0  ?  (<p> Sin stock </p>) : (<p> {props.stock} disponibles </p>) &&  
+                    buttonFinish ? 
+                                <ItemCount
+                                    stock={props.stock}
+                                    initial={1}
+                                    onAdd={onAdd}
+                                    count={quantity}
+                                />
+                             : 
+                                <Fragment>
+                                    <Link to={'/cart'}>
+                                        <button className='button-finish'>Finalizar Compra </button>
+                                    </Link>
+                                </Fragment>
+                            }
                    
                 </div>
                 </div>  
             </div>        
             </div>
-        </div>      
+        </div>         
             
     )
 

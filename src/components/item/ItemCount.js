@@ -1,6 +1,8 @@
 import React, { Fragment, useState } from "react";
 
-export const ItemCount = ({ stock, initial, onAdd}) => {
+import "./item.scss"
+
+export const ItemCount = ({ stock, initial, onAdd }) => {
   const [count, setCount] = useState(initial);
 
  

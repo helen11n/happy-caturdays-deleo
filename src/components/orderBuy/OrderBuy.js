@@ -1,15 +1,40 @@
-export const OrderBuy = ( {orderCart, order} ) => {
+import { useContext } from "react"
+import { Link } from "react-router-dom"
+import { CartContext } from "../../context/cartContext"
 
-    console.log ("orderCart", orderCart)
-    console.log ("order", order)
+import "./orderBuy.scss"
+
+export const OrderBuy = (  ) => {
+
+    const { order } = useContext(CartContext)
+   
+    
+    console.log ("orderID", order)
     return(
+       
+        <section className="order">
+        <div className="container">
+            <div className="row">
+                <div className="col-12">
+                    <div className="order-container">
+                         <h1>&#128571;</h1>  
+                         <h2>¡Gracias por tu compra! </h2>
+                       
+                       
+                         <h5>Nro de orden: {order} </h5>
 
-        <>
-        <div>
-            <h3>Gracias por tu compra!</h3>
-            <p>Nro de orden: {order} {orderCart}</p>
+                         <h6>Te enviamos un email con el detalle completo</h6>
+                         
+                    </div>
+            
+                    <div className="backHome-button">
+                    <Link exact to="/"><button>Volver a la home</button></Link>
+                    
+                    </div>
+                </div>
+            </div>
         </div>
-        </>
+        </section>
     )
 
 

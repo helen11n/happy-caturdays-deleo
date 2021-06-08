@@ -5,13 +5,16 @@ import { ItemCount } from "./ItemCount"
 import { Fragment } from "react"
 import { CartContext } from "../../context/cartContext"
 
+import "./item.scss"
+
 export const ItemDetail = ({ props }) => {
 
 
 const [quantity, setQuantity] = useState(0)
 const [buttonFinish, setButtonFinish] = useState(true)
 
-const { addToCart } = useContext(CartContext)
+
+const { addToCart  } = useContext(CartContext)
 
 useEffect( () => {
     if (quantity > 0) {
@@ -19,6 +22,8 @@ useEffect( () => {
     }
 
 }, [quantity]  )
+
+
 
 
 const onAdd = (quantity) => {
@@ -29,6 +34,7 @@ const onAdd = (quantity) => {
    setButtonFinish(false)
    addToCart(props, quantity)
 }
+
 
 
 return (
@@ -48,21 +54,25 @@ return (
                     <p>{props.description} </p>
                     <h4>${props.price}</h4> 
 
-                    {props.stock == 0  ?  (<p> Sin stock </p>) : (<p> {props.stock} disponibles </p>) &&  
-                    buttonFinish ? 
+                    {props.stock == 0  ?  (<h5> Sin stock </h5>) : (<p> {props.stock} en stock </p>) }  
+                    {props.stock > 0 ?
+                    (buttonFinish ? 
                                 <ItemCount
                                     stock={props.stock}
                                     initial={1}
                                     onAdd={onAdd}
                                     count={quantity}
+                                   
                                 />
                              : 
                                 <Fragment>
                                     <Link to={'/cart'}>
                                         <button className='button-finish'>Finalizar Compra </button>
                                     </Link>
-                                </Fragment>
-                            }
+                                </Fragment>)
+                             :""
+                           
+                   }
                    
                 </div>
                 </div>  

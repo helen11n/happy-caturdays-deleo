@@ -13,13 +13,9 @@ import { CartList } from "./CartList"
 
 export const Cart = ( ) => {
   
-    const { cart,  clearCart, setCart, totalCartPrice } = useContext(CartContext)
-
-    const [loader, setLoader] = useState(false)
+    const { cart,  clearCart, setCart, totalCartPrice , canBuy, checkIfCanBuy} = useContext(CartContext)
 
     const [showForm, setShowForm] = useState(false)
-
-    
 
     
     return (
@@ -28,11 +24,15 @@ export const Cart = ( ) => {
         <section className="cart">
             <div className="container">
                 <div className="row">
+                  
                    { showForm ? 
+                    
                         <Form/> :
                         <CartList showForm={showForm} setShowForm={setShowForm} /> 
                         
                    }
+
+                   
                </div> 
             </div>
         </section>

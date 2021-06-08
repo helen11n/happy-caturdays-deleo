@@ -5,6 +5,8 @@ import { Item } from "./Item"
 import { getFirestore } from "../../firebase"
 import { Loader } from "../loader/Loader"
 
+import "./item.scss"
+
 export const ItemList = () => {
 
   const [products, setProducts] = useState([]);

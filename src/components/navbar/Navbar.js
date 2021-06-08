@@ -6,15 +6,13 @@ import { NavLink } from "react-router-dom"
 const navigationMenu = [
   "Inicio",
   "Para Michis",
-  "Para Esclav@s",
-  "Contacto"
+  "Para Esclav@s"
 ]
 export const Navbar = () => {
   return (        
 
    
    <div className="navbar-container">
-      <header className="">
         <nav className="navbar navbar-expand-md navbar-dark">
           <div className="container-fluid">
             <div className="brand">
@@ -34,9 +32,6 @@ export const Navbar = () => {
                     <li className="nav-item">
                       <NavLink className="navlink" activeClassName="nav-active" to="/category/esclavxs">{navigationMenu[2]}</NavLink>
                     </li>
-                    <li className="nav-item">
-                      <NavLink className="navlink" activeClassName="nav-active" to="/contacto">{navigationMenu[3]}</NavLink>
-                    </li>
                   
               </ul>
             </div>
@@ -44,8 +39,7 @@ export const Navbar = () => {
           </div>
           
         </nav>
-        
-        </header>
+       
     </div>
   );
 };

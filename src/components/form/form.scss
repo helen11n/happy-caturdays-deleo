@@ -2,12 +2,10 @@
 
 
 .cart-form-container {
-    //margin: 0 20px;
     margin: 0 auto;
 }
 
 .cart-total {
-  //  background-color: #f3f3f3;
     padding: 20px 0;
     margin-bottom: 20px;
         h5 {
@@ -56,14 +54,18 @@ input {
         font-size: 14px;
         letter-spacing: 1px;
         &:hover {
-          transition: 0.5s;
-          opacity: 0.8;
+            transition: 0.5s;
+            background-color: $naranja2;
         }
+        &:disabled {
+            opacity: 0.5;
+            cursor: default;
+            &:hover {
+                background-color: $violeta;
+                
+            }
+        }  
+
     }
 }
 
-
-.error {
-    padding-left: 20px;
-    color: red;
-}

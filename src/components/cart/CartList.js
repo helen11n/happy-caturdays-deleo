@@ -4,12 +4,12 @@ import { CartItem } from "./CartItem"
 import { CartContext } from "../../context/cartContext"
 import { Link } from "react-router-dom"
 export const CartList = ( {setShowForm} ) => {
-    const { cart,  clearCart, setCart, totalCartPrice } = useContext(CartContext)
+    const { cart,  clearCart, setCart, totalCartPrice, cartQuantity } = useContext(CartContext)
     return (
         <Fragment>
         {cart.length > 0 ? (
                         <Fragment>
-                        <div className="col-12">
+                        <div className="col-lg-8 col-md-12">
                         <div className="cart-list-container">
                             <div className="row-cart-head"> 
                             <div className="items-head">  
@@ -19,8 +19,11 @@ export const CartList = ( {setShowForm} ) => {
                                 <div className="item-description">
                                    Detalle
                                 </div> 
-                                <div>
-                               <Link onClick={clearCart}>Limpiar carrito</Link>
+                                <div className="item-price">
+                                    Subtotal
+                                </div>
+                                <div className="clearCart-button-container">
+                               <button className="clearCart-button" onClick={clearCart}>Vaciar carrito</button>
                                 </div>
                             </div>
                             </div>
@@ -28,18 +31,26 @@ export const CartList = ( {setShowForm} ) => {
                            <CartItem props={props}/>
                         
                              ) )}  
-                            <div className="row-cart-list">
+                            {/* <div className="row-cart-list">
                                  <h5>Total: ${totalCartPrice()} </h5> 
                             </div>
                              <div className="row-cart-list">
                             
-                                 <button onClick={() => setShowForm(true)}>Checkout</button>
+                                 <button className="checkOut-button" onClick={() => setShowForm(true)}>Checkout</button>
 
-                             </div>
-                        
+                             </div> */}
+                            
                             </div>    
                         </div>
-                        
+                        <div className="col-lg-4 col-md-12">
+                        <div className="">
+                                <div className="cart-checkout">
+                                <h6>Total productos: {cartQuantity} </h6>
+                                 <h5>Total a abonar: <span> ${totalCartPrice()}</span>  </h5> 
+                                 <button className="checkOut-button" onClick={() => setShowForm(true)}>CHECKOUT</button>
+                                 </div>
+                            </div> 
+                        </div>
                         </Fragment>        
                        
                         ) : (

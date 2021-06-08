@@ -4,12 +4,16 @@ import { createContext, useEffect, useState } from 'react'
 export const CartContext = createContext()
 export const CartProvider = ({ children }) => {
 
+
+    const [order, setOrder] = useState('')
     const [cart, setCart] = useState([])
     const [cartQuantity, setCartQuantity] = useState(0)
+    
 
     const addToCart = (item, quantity) => {
         let newCart = [...cart]
         const isItemFinded = isInCart(item)
+
         if (isItemFinded) {
             const itemFindedIndex = newCart.findIndex((prod) => prod.id === item.id)
             newCart[itemFindedIndex].quantity =
@@ -18,6 +22,7 @@ export const CartProvider = ({ children }) => {
             item.quantity = quantity
             newCart.push(item)
         }
+
         setCart(newCart)
     }
 
@@ -32,6 +37,7 @@ export const CartProvider = ({ children }) => {
         setCart([])
     }
 
+
     useEffect(() => {
         const calcCartQuantity = () => {
             return cart.reduce((total, currentItem) => total + currentItem.quantity,0)
@@ -41,18 +47,13 @@ export const CartProvider = ({ children }) => {
     }, [cart])
 
 
-    // Importe total
+    
   const totalCartPrice = () => {
     return cart.reduce((total, currentItem) => (total += currentItem.price * currentItem.quantity), 0)
   }
 
-/* 
-  const addCartItem = (itemId) => {
-    const {newCart, quantity} =   
-
-  }*/
-
-
+  
+ 
 
     return (
         <CartContext.Provider
@@ -64,6 +65,8 @@ export const CartProvider = ({ children }) => {
                 clearCart,
                 setCart,
                 totalCartPrice,
+                order,
+                setOrder
             }}
         >
             {children}

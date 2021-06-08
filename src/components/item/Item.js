@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom"
 
+import "./item.scss"
+
 export const Item = ( item ) => {
     
     return (

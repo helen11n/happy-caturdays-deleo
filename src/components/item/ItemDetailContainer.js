@@ -4,9 +4,11 @@ import { useEffect, useState } from "react"
 import { getFirestore } from "../../firebase"
 import { Loader } from "../loader/Loader"
 
+import "./item.scss"
+
 export const ItemDetailContainer = () => {
 
-  const { productId } = useParams()
+    const { productId } = useParams()
     const [ item, setItem] = useState([])
     const [ loader, setLoader ] = useState(false)
 

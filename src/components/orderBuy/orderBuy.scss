@@ -1,0 +1,41 @@
+@import "../../Color.scss";
+
+.order {
+    min-height: 650px;
+}
+
+
+.order-container {
+   text-align: center;
+    margin: 70px 0;
+
+    h2 {
+        margin-bottom: 30px;
+    }
+   
+}
+
+
+.backHome-button {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0;
+
+    button {
+        border: none;
+        background-color: $violeta;
+        color: #ffffff;
+        padding: 5px 25px;
+        height: 2.5rem;
+        border-radius: 10px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+        &:hover {
+          transition: 0.5s;
+          opacity: 0.8;
+        }
+    }
+}

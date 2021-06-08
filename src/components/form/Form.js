@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState } from "react"
+import { Fragment, useContext, useEffect, useState } from "react"
 import { Input } from "../../components/input/Input"
 import { CartContext } from "../../context/cartContext"
 import { getFirestore } from "../../firebase"
@@ -6,19 +6,17 @@ import firebase from 'firebase/app'
 import "./form.scss"
 import { Link } from "react-router-dom"
 
-export const Form = ({showForm, setShowForm}) => {
+export const Form = () => {
 
-    const { cart,  setCart, totalCartPrice } = useContext(CartContext)
+    const { cart,  setCart, totalCartPrice, setOrder } = useContext(CartContext)
 
     const [form, setForm] = useState ({
         name: '', surname: '', email:'', phone: ''
     })
 
-   // const [checkOut, setCheckOut] = useState(false)
-
-    const [error, setError] = useState('')
-    const [order,setOrder] = useState('')
-
+  
+    const [isDisabled, setIsDisabled] = useState(true)
+   
     const formFields = [
         {
             id: 'name',
@@ -75,34 +73,16 @@ export const Form = ({showForm, setShowForm}) => {
     const { name, surname, phone, email } = form
 
     const handleForm = (id, value) => {
+       
         const newForm = { ...form, [id]: value }
         setForm(newForm)
 
 
     }
 
-  const handleSubmit = (e) => {
-      e.preventDefault()
-
-
-      let patternNombre = /^[a-zA-Z- ]*$/
-      let patternEmail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
-
-      if (!patternNombre.test(name) || !patternNombre.test(surname) || !patternEmail.test(email)) {
-
-        setError("Por favor revisa los campos")
-       // alert("Por favor completa los campos de forma correcta")
-      } else if ([name.trim(), surname.trim(), email.trim(), phone.trim()].includes('')) {
-        setError('Por favor completa todos los campos')
-      } else {
-        orderCart()
-      }
-       
-    } 
-
-    
-    
+  
     const orderCart = () => {
+      
         const db = getFirestore()
         const ordersCollection = db.collection("orders")
 
@@ -117,26 +97,41 @@ export const Form = ({showForm, setShowForm}) => {
 
         ordersCollection.add(newOrder).then(({id}) => {
             setOrder(id)
+           
+          
         }).catch((error) => {
             console.log('Hubo un error al crear la orden', error);
         }).finally(stockUpdate())
        
-            alert("Compra realizada con éxito:" + {order} )   
+            alert("Compra realizada con éxito:"  )   
          console.log("newOrder:", newOrder)
             
     }
 
+    useEffect ( () => {
+
+      let patternName = /^[a-zA-Z- ]*$/
+      let patternEmail = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/
+      let patternPhone = /^[0-9- ]{8,15}$/
+      const disableButton = (!patternName.test(name) || !patternName.test(surname) || !patternEmail.test(email) || !patternPhone.test(phone) || [name.trim(), surname.trim(), email.trim(), phone.trim()].includes(''))
+      
+        setIsDisabled(disableButton)
+      
+
+    },[form])
+
+    
+
     return (
         <Fragment>
-        <div className="cart-form-container ">    
-           
+        <div className="cart-form-container ">  
             <div className="cart-total">            
                 <h5>Total: ${totalCartPrice()} </h5> 
             </div>
             <div className="text-cart-form">
                 <p>Completá tus datos para confirmar tu compra</p>
             </div>
-            <form className="form" onSubmit={handleSubmit}>
+            <form className="form">
                
                  {formFields.map(({ id, label, value, type, placeholder }) => (
                         <Input 
@@ -149,15 +144,16 @@ export const Form = ({showForm, setShowForm}) => {
                     } 
                     
             </form>
-            {error && <p className="error"> {error} </p> }
+           
             <div className="button-finish-container">
+           
             <Link to="/cartCheckOut">
-           <button type="submit" onClick={orderCart} >Confirmar compra</button>
+           <button type="submit" onClick={orderCart} disabled={isDisabled}>CONFIRMAR COMPRA</button>
            </Link>
             </div>  
-        </div>            
+        </div>          
         </Fragment>
-
+               
 
     )
 

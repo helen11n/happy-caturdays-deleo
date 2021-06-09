@@ -3,12 +3,12 @@ import "firebase/firestore"
 
 const app = firebase.initializeApp({
 
-    apiKey: "AIzaSyA12dYuU5_CmbZt5nL-iWK1ECO6DcbKZr0",
-    authDomain: "happy-caturdays.firebaseapp.com",
-    projectId: "happy-caturdays",
-    storageBucket: "happy-caturdays.appspot.com",
-    messagingSenderId: "435478586365",
-    appId: "1:435478586365:web:a3670b440515a0388a6f94"
+    apiKey: process.env.REACT_APP_HAPPY_CATURDAYS_APIKEY,
+    authDomain: process.env.REACT_APP_HAPPY_CATURDAYS_AUTHDOMAIN,
+    projectId: process.env.REACT_APP_HAPPY_CATURDAYS_PROJECTID,
+    storageBucket: process.env.REACT_APP_HAPPY_CATURDAYS_STORAGEBUCKET,
+    messagingSenderId: process.env.REACT_APP_HAPPY_CATURDAYS_MESSAGINGSENDERID,
+    appId: process.env.REACT_APP_HAPPY_CATURDAYS_APPID
 
 })
 

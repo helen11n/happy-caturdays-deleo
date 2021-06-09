@@ -1,12 +1,9 @@
 import { ItemListContainer } from "../item/ItemListContainer"
 import { BannerHome } from "../bannerHome/BannerHome"
-import banner from "../../images/banner.png"
-import { Link } from "react-router-dom"
-
 import { Fragment } from "react"
+import { HeaderHome } from "../headerHome/HeaderHome"
 
 import "./home.scss"
-import { HeaderHome } from "../headerHome/HeaderHome"
 
 export const Home = () => {
      

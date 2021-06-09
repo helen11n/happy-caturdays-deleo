@@ -4,7 +4,7 @@ import "./headerHome.scss"
 export const HeaderHome = () => {
 
     return (
-        <header className="">
+       
         <div className="container-fluid">
             <div className="row">
                 <div className="banner">
@@ -24,6 +24,6 @@ export const HeaderHome = () => {
                 </div>
             </div>
         </div>
-        </header>
+       
     )
 }

@@ -2,21 +2,22 @@
 
 
 
-
 nav {
   text-transform: uppercase;
  
 }
 
 .brand {
- 
+  img {
+    width: 120px;
+  }
 }
 
 .navbar-container {
     padding: 20px 50px;
     margin: auto;
     background-color: $violeta2;
-  //  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.2);
+  
   }
   /**/
   .navbar-i {
@@ -82,8 +83,7 @@ nav {
       
 
       ul {
-        //  margin: 50px 0;
-        
+       
           img {
             width: 30px;
             
@@ -95,28 +95,33 @@ nav {
         
         }
      }
-    
-    
-    
 
 
+    // Medium devices (tablets, less than 992px)
+     @media (max-width: 991.98px) {
+       .nav-item {
+         margin: 0 10px;
+       }
+     }
+
+  
     // Small devices (landscape phones, less than 768px)
-@media (max-width: 767.98px) { 
-  .brand {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin: 20px 0;
-  }
+    @media (max-width: 767.98px) { 
+      .brand {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+      }
 
-  .nav-item {
- margin: 10px 0;
-  }
- .nav-item:first-child {
-margin-top: 30px;
- } 
+      .nav-item {
+    margin: 10px 0;
+      }
+    .nav-item:first-child {
+    margin-top: 30px;
+    } 
 
- .secondary-menu {
-   margin-top: 20px;
-  }
-} 
+    .secondary-menu {
+      margin-top: 20px;
+      }
+    } 

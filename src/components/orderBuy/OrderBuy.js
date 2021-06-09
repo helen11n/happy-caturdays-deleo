@@ -24,13 +24,13 @@ export const OrderBuy = (  ) => {
                          <h5>Nro de orden: {order} </h5>
 
                          <h6>Te enviamos un email con el detalle completo</h6>
-                         
-                    </div>
-            
-                    <div className="backHome-button">
+                         <div className="backHome-button">
                     <Link exact to="/"><button>Volver a la home</button></Link>
                     
                     </div>
+                    </div>
+            
+                    
                 </div>
             </div>
         </div>

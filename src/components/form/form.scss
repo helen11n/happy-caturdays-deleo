@@ -3,6 +3,8 @@
 
 .cart-form-container {
     margin: 0 auto;
+    background-color: $blanco;
+    padding: 20px;
 }
 
 .cart-total {
@@ -26,6 +28,7 @@
    margin-bottom: 20px;
    padding: 20px;
    box-shadow: 0 6px 10px 0 rgba(207,203,203, 0.5);
+   background-color: $blanco;
 }
 
 label {
@@ -50,6 +53,8 @@ input {
         padding: 10px 40px;
         background-color: $violeta;
         color: #ffffff;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
         border-radius: 10px;
         font-size: 14px;
         letter-spacing: 1px;

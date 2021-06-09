@@ -103,7 +103,6 @@ export const Form = () => {
             console.log('Hubo un error al crear la orden', error);
         }).finally(stockUpdate())
        
-            alert("Compra realizada con éxito:"  )   
          console.log("newOrder:", newOrder)
             
     }

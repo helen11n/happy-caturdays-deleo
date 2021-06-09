@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     padding: 20px 25px;
-   // width: 30%;
+    background-color: $blanco;
     margin: 10px;
     box-shadow: 0 6px 10px 0 rgba(207,203,203, 0.5);
  
@@ -29,6 +29,8 @@
        background-color: transparent;
        color: $violeta;
        padding: 10px 25px;
+       -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
        border-radius: 10px;
        letter-spacing: 1px;
  
@@ -56,14 +58,15 @@
    .counter {
      width: 100px;
      display: flex;
-   //  border: 1px solid $violeta;
      margin: auto;
      color:  $violeta;
      height: 2.5rem;
      align-items: center;
+     -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
      border-radius: 10px;
      margin-right: 20px;
-     background-color: #f3f3f3;
+     background-color: $blanco2;
      button {
        border: none;
        margin: 0 auto;
@@ -87,6 +90,8 @@
       color: #ffffff;
       padding: 5px 25px;
       height: 2.5rem;
+      -webkit-border-radius: 10px;
+      -moz-border-radius: 10px;
       border-radius: 10px;
       cursor: pointer;
       text-transform: uppercase;
@@ -118,6 +123,7 @@
   }
 
   .product {
+    background-color: $blanco;
     margin: 30px 0;
     padding: 40px;
     width: 100%;
@@ -142,10 +148,15 @@
 .cartCount {
 
     padding: 3px 10px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
     border-radius: 50%;
     background-color: #ffffff;
     color: $violeta;
-    
+    height: 30px;
+    width: 30px;
+    display: inline-flex;
+    justify-content: center;
   
   }
   
@@ -155,6 +166,8 @@
     border: 1px solid $violeta;
     padding: 5px 25px;
      height: 2.5rem;
+     -webkit-border-radius: 10px;
+     -moz-border-radius: 10px;
      border-radius: 10px;
      font-size: 0.8rem;
      cursor: pointer;
@@ -203,11 +216,7 @@
   }
   
   
- 
-  @media (min-width: 1200px) { 
-   
-   }
- 
+
  
    // Medium devices (tablets, less than 992px)
  @media (max-width: 991.98px) { 

@@ -1,7 +1,8 @@
-import "./navbar.scss"
-
 import { CartWidget } from "./CartWidget"
 import { NavLink } from "react-router-dom"
+import logo from "../../images/logo.png"
+
+import "./navbar.scss"
 
 const navigationMenu = [
   "Inicio",
@@ -13,10 +14,11 @@ export const Navbar = () => {
 
    
    <div className="navbar-container">
+      <header>
         <nav className="navbar navbar-expand-md navbar-dark">
           <div className="container-fluid">
             <div className="brand">
-             <NavLink exact to="/" ><p>Happy Caturdays</p></NavLink>
+             <NavLink exact to="/" ><img src={logo} alt="Happy Caturdays" /></NavLink>
             </div>
             <button className="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span className="navbar-toggler-icon"></span>
@@ -32,14 +34,13 @@ export const Navbar = () => {
                     <li className="nav-item">
                       <NavLink className="navlink" activeClassName="nav-active" to="/category/esclavxs">{navigationMenu[2]}</NavLink>
                     </li>
-                  
               </ul>
             </div>
             <CartWidget />
           </div>
           
         </nav>
-       
+        </header>
     </div>
   );
 };

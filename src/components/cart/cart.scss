@@ -7,7 +7,8 @@
     justify-content: center;
     align-items: center;
     padding: 0 20px;
-
+    background-color: $blanco;
+    
 }
 
 .cart {
@@ -17,6 +18,8 @@
 
 .empty-cart-content {
     margin-top: 50px;
+    background-color: $blanco;
+    padding: 50px 0;
 }
 
 .empty-cart-text {
@@ -39,6 +42,8 @@
         color: #ffffff;
         padding: 5px 25px;
         height: 2.5rem;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
         border-radius: 10px;
         font-size: 0.8rem;
         cursor: pointer;
@@ -67,12 +72,10 @@
     flex-wrap: wrap;
     padding: 20px 0;
     border-bottom: 1px solid #999999;
-   /*  &:last-child {
-        justify-content: flex-end;
-        width: 85%;
-        border-bottom: none;
-        padding: 0;
-    } */
+   &:last-child {
+        border: none;
+        
+    } 
    
 
 
@@ -82,6 +85,8 @@
     width: 100%;
     border: 1px solid #999999;
     padding: 30px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
     align-items: center;
     
@@ -98,6 +103,8 @@
 
 .checkOut-button {
     padding: 10px 40px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
     letter-spacing: 1px;
     background-color: $violeta;
@@ -124,7 +131,7 @@ display: flex;
 flex-direction: row;
 width: 100%;
 align-items: center;
-//border-bottom: 1px solid #999999;
+
 
     .producto {
         width: 200px;
@@ -170,6 +177,8 @@ align-items: center;
     background-color: transparent;
     color: $violeta;
     font-weight: bold;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
     padding: 10px 20px;
 }

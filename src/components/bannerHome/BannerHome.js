@@ -4,8 +4,6 @@ import "./bannerHome.scss"
 export const BannerHome = () => {
 
     return (
-        <>
-
        
             <div className="container">
                 <div className="row">
@@ -28,8 +26,5 @@ export const BannerHome = () => {
                 </div>
             </div>
 
-
-
-        </>
     )
 }
